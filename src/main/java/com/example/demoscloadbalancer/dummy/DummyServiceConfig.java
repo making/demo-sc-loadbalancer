@@ -26,7 +26,7 @@ public class DummyServiceConfig {
 
 	@Bean
 	public HttpServer service3() {
-		return this.createHttpServer(3, 12335, HttpStatus.OK);
+		return this.createHttpServer(3, 12335, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
 	public HttpServer createHttpServer(int id, int port, HttpStatus status) {

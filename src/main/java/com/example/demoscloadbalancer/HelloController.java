@@ -4,7 +4,7 @@ import reactor.core.publisher.Mono;
 import reactor.netty.http.client.HttpClient;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.cloud.client.loadbalancer.reactive.ReactorLoadBalancerExchangeFilterFunction;
+import org.springframework.cloud.client.loadbalancer.reactive.LoadBalancedExchangeFilterFunction;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +19,7 @@ public class HelloController {
 
 	private final WebClient webClient;
 
-	public HelloController(@LoadBalanced RestTemplate restTemplate, WebClient.Builder webClientBuilder, ReactorLoadBalancerExchangeFilterFunction loadBalancerExchangeFilterFunction) {
+	public HelloController(@LoadBalanced RestTemplate restTemplate, WebClient.Builder webClientBuilder, LoadBalancedExchangeFilterFunction loadBalancerExchangeFilterFunction) {
 		this.restTemplate = restTemplate;
 		this.webClient = webClientBuilder
 				.clientConnector(new ReactorClientHttpConnector(HttpClient.create().wiretap(true)))

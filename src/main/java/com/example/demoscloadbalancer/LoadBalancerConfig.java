@@ -34,4 +34,9 @@ public class LoadBalancerConfig {
 						.build())
 				.build();
 	}
+
+	@Bean
+	public SurgicalRoutingRequestTransformer surgicalRoutingRequestTransformer() {
+		return new SurgicalRoutingRequestTransformer();
+	}
 }
